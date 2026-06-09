@@ -138,6 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function getCurrentPage() {
   const path = window.location.pathname;
+  if (path.includes('product.html')) return 'product';
   if (path.includes('shop.html')) return 'shop';
   if (path.includes('about.html')) return 'about';
   if (path.includes('contact.html')) return 'contact';
@@ -226,6 +227,8 @@ function renderPage() {
     renderHomePage();
   } else if (currentPage === 'shop') {
     renderShopProducts();
+  } else if (currentPage === 'product') {
+    renderProductPage();
   }
 }
 
@@ -287,6 +290,80 @@ function renderShopProducts() {
   renderProductGrid('shopProducts', filtered);
 }
 
+function renderProductPage() {
+  const productDetail = document.getElementById('productDetail');
+  if (!productDetail) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const productId = Number(params.get('id')) || null;
+  const product = products.find((p) => p.id === productId);
+
+  if (!product) {
+    productDetail.innerHTML = `
+      <div class="product-not-found">
+        <h1>Product not found</h1>
+        <p>We couldn't find the product you were looking for. Please return to the shop to browse our collection.</p>
+        <a class="btn btn-primary" href="shop.html">Back to Shop</a>
+      </div>
+    `;
+    return;
+  }
+
+  productDetail.innerHTML = `
+    <div class="product-detail-grid">
+      <div class="product-detail-image">
+        <img src="${product.images[0]}" alt="${product.name}" />
+      </div>
+      <div class="product-detail-copy">
+        <p class="section-label">${product.badge || product.label || 'Sleepwear'}</p>
+        <h1>${product.name}</h1>
+        <p class="price">$${product.price.toFixed(2)}</p>
+        <p>${product.description}</p>
+        <div class="size-selector">
+          <h3>Select Size *</h3>
+          <div class="size-grid product-page-sizes">
+            ${sizes.map((size) => `
+              <button class="size-option" data-size="${size}">${size}</button>
+            `).join('')}
+          </div>
+        </div>
+        <div class="quantity-selector">
+          <button class="qty-btn" id="qtyMinus">−</button>
+          <input type="number" id="qtyInput" class="qty-input" value="1" min="1" max="10" />
+          <button class="qty-btn" id="qtyPlus">+</button>
+        </div>
+        <button class="btn btn-primary" id="addToCartProduct">Add to Cart</button>
+      </div>
+    </div>
+  `;
+
+  let selectedSize = '';
+  productDetail.querySelectorAll('.size-option').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      productDetail.querySelectorAll('.size-option').forEach((b) => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      selectedSize = btn.dataset.size;
+    });
+  });
+
+  const qtyInput = document.getElementById('qtyInput');
+  document.getElementById('qtyMinus')?.addEventListener('click', () => {
+    if (qtyInput.value > 1) qtyInput.value--;
+  });
+  document.getElementById('qtyPlus')?.addEventListener('click', () => {
+    if (qtyInput.value < 10) qtyInput.value++;
+  });
+
+  document.getElementById('addToCartProduct')?.addEventListener('click', () => {
+    if (!selectedSize) {
+      alert('Please select a size');
+      return;
+    }
+    addToCart(productId, selectedSize, Number(qtyInput.value));
+    openCart();
+  });
+}
+
 function sortProducts(prods, by) {
   const sorted = [...prods];
   switch (by) {
@@ -317,7 +394,7 @@ function renderProductGrid(elementId, prods) {
         <h3>${product.name}</h3>
         <p class="price">$${product.price.toFixed(2)}</p>
         <div class="product-actions">
-          <button class="btn btn-primary view-product" data-id="${product.id}">View</button>
+          <a class="btn btn-primary" href="product.html?id=${product.id}">View</a>
           <button class="wishlist-btn ${wishlist.includes(product.id) ? 'active' : ''}" data-id="${product.id}" aria-label="Add to wishlist">♡</button>
         </div>
       </div>
@@ -331,13 +408,6 @@ function renderProductGrid(elementId, prods) {
     img.addEventListener('click', () => {
       const productId = Number(img.dataset.id);
       openImageLightbox(productId);
-    });
-  });
-
-  container.querySelectorAll('.view-product').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const productId = Number(btn.dataset.id);
-      showProductModal(productId);
     });
   });
 
@@ -563,8 +633,7 @@ function performSearch() {
     resultsDiv.querySelectorAll('.search-result-item').forEach((item) => {
       item.addEventListener('click', () => {
         const productId = Number(item.dataset.id);
-        showProductModal(productId);
-        searchPanel?.classList.add('hidden');
+        window.location.href = `product.html?id=${productId}`;
       });
     });
   }
@@ -635,19 +704,21 @@ function updateCartCount() {
 }
 
 function renderCart() {
-  const cartList = document.getElementById('cartItemsList');
+  const cartList = document.getElementById('cartItemsList') || document.getElementById('cartItems');
   if (!cartList) return;
+  const totalEl = document.getElementById('cartSubtotal') || document.getElementById('cartTotal');
+  const checkoutButtonEl = document.getElementById('checkoutBtn') || document.getElementById('checkoutButton');
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   if (cart.length === 0) {
     cartList.innerHTML = '<p class="cart-empty">Your bag is empty. Start shopping!</p>';
-    document.getElementById('cartSubtotal').textContent = '$0.00';
-    document.getElementById('checkoutBtn').disabled = true;
+    if (totalEl) totalEl.textContent = '$0.00';
+    if (checkoutButtonEl) checkoutButtonEl.disabled = true;
     return;
   }
 
-  document.getElementById('checkoutBtn').disabled = false;
+  if (checkoutButtonEl) checkoutButtonEl.disabled = false;
 
   cartList.innerHTML = cart.map((item) => `
     <div class="cart-item">
@@ -686,17 +757,21 @@ function renderCart() {
     });
   });
 
-  document.getElementById('cartSubtotal').textContent = `$${total.toFixed(2)}`;
+  if (totalEl) totalEl.textContent = `$${total.toFixed(2)}`;
 }
 
 function openCart() {
   renderCart();
+  cartDrawer?.classList.remove('hidden');
   cartDrawer?.classList.add('open');
+  backdrop?.classList.remove('hidden');
   backdrop?.classList.add('open');
 }
 
 function closeCart() {
+  cartDrawer?.classList.add('hidden');
   cartDrawer?.classList.remove('open');
+  backdrop?.classList.add('hidden');
   backdrop?.classList.remove('open');
 }
 

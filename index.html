@@ -65,6 +65,7 @@
     <div class="search-panel hidden" id="searchPanel">
       <div class="container search-box">
         <input type="search" id="searchInput" placeholder="Search sleepwear, robes, sets..." aria-label="Search site" />
+        <div id="searchResults" class="search-results hidden"></div>
       </div>
     </div>
   </header>
@@ -171,17 +172,36 @@
       <button class="icon-btn" id="closeCart" aria-label="Close cart">✕</button>
     </div>
     <div class="drawer-body">
-      <div id="cartItems"></div>
+      <div id="cartItemsList" class="cart-items-list"></div>
     </div>
     <div class="drawer-footer">
       <div class="drawer-total">
         <span>Subtotal</span>
-        <strong id="cartTotal">$0.00</strong>
+        <strong id="cartSubtotal">$0.00</strong>
       </div>
-      <button class="btn btn-primary" id="checkoutButton">Checkout</button>
+      <button class="btn btn-primary" id="checkoutBtn">Checkout</button>
     </div>
   </div>
-  <div class="drawer-backdrop hidden" id="drawerBackdrop"></div>
+
+  <div class="modal hidden" id="productModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeModal" aria-label="Close">&times;</button>
+      <div class="product-modal-inner" id="productModalContent"></div>
+    </div>
+  </div>
+
+  <div class="backdrop hidden" id="backdrop"></div>
+
+  <div class="backdrop hidden" id="lightboxBackdrop"></div>
+  <div class="lightbox hidden" id="imageLightbox">
+    <button class="lightbox-close" id="closeLightbox" aria-label="Close">&times;</button>
+    <div class="lightbox-content">
+      <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrev" aria-label="Previous image">‹</button>
+      <img id="lightboxImage" src="" alt="Product image" />
+      <button class="lightbox-nav-btn lightbox-next" id="lightboxNext" aria-label="Next image">›</button>
+    </div>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+  </div>
 
   <script src="js/app.js" defer></script>
 </body>

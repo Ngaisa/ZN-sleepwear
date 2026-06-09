@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="ZN Sleepwear product details - luxury sleepwear designed for comfort and style." />
+  <title>Product | ZN Sleepwear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="announcement-bar">ORDER ON WEBSITE NOT AVAILABLE PLEASE SENT US A SCREENSHOT OF YOUR ORDER</div>
+
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <button class="icon-btn nav-toggle" id="navToggle" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <a class="brand-link" href="index.html">
+        <img class="brand-logo" src="img/our logo.jpg" alt="ZN Sleepwear" />
+      </a>
+
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop All</a></li>
+          <li><a href="shop.html?category=new">New Arrivals</a></li>
+          <li><a href="shop.html?category=best">Best Sellers</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn search-toggle" id="searchToggle" aria-label="Search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 21l-4.35-4.35m1.85-5.45a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <a class="icon-btn account-btn" href="#" aria-label="Account">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <button class="icon-btn cart-btn" id="cartToggle" aria-label="Cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12L4 3H2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="21" r="1"/><circle cx="18" cy="21" r="1"/></svg>
+          <span class="badge cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav hidden" id="mobileNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop All</a></li>
+        <li><a href="shop.html?category=new">New Arrivals</a></li>
+        <li><a href="shop.html?category=best">Best Sellers</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="search-panel hidden" id="searchPanel">
+      <div class="container search-box">
+        <input type="search" id="searchInput" placeholder="Search pajamas, robes, sets..." aria-label="Search" />
+        <div id="searchResults" class="search-results hidden"></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section product-page-section">
+      <div class="container" id="productDetail"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>ZN Sleepwear</h3>
+          <p>Because softness is not weakness — it is a form of luxury.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="shop.html?category=new">New Arrivals</a></li>
+            <li><a href="shop.html?category=best">Best Sellers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/znsleepwear.sr?utm_source=qr">Instagram</a></li>
+            <li><a href="https://www.tiktok.com/@znsleepwear">TikTok</a></li>
+            <li><a href="https://www.facebook.com/znsleepwear">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ZN Sleepwear. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cart-drawer hidden" id="cartDrawer">
+    <div class="drawer-header">
+      <h2>Your Bag</h2>
+      <button class="icon-btn close-cart" id="closeCart" aria-label="Close">
+        <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="drawer-body">
+      <div id="cartItemsList" class="cart-items-list"></div>
+    </div>
+    <div class="drawer-footer">
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <strong id="cartSubtotal">$0.00</strong>
+        </div>
+        <div class="summary-row">
+          <span>Shipping</span>
+          <span>Calculated at checkout</span>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-block" id="checkoutBtn">Proceed to Checkout</button>
+      <a class="btn btn-outline btn-block" href="shop.html">Continue Shopping</a>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="productModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeModal" aria-label="Close">&times;</button>
+      <div class="product-modal-inner" id="productModalContent"></div>
+    </div>
+  </div>
+
+  <div class="backdrop hidden" id="backdrop"></div>
+
+  <div class="backdrop hidden" id="lightboxBackdrop"></div>
+  <div class="lightbox hidden" id="imageLightbox">
+    <button class="lightbox-close" id="closeLightbox" aria-label="Close">&times;</button>
+    <div class="lightbox-content">
+      <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrev" aria-label="Previous image">‹</button>
+      <img id="lightboxImage" src="" alt="Product image" />
+      <button class="lightbox-nav-btn lightbox-next" id="lightboxNext" aria-label="Next image">›</button>
+    </div>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+  </div>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
