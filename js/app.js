@@ -137,11 +137,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function getCurrentPage() {
-  const path = window.location.pathname;
-  if (path.includes('product.html')) return 'product';
-  if (path.includes('shop.html')) return 'shop';
-  if (path.includes('about.html')) return 'about';
-  if (path.includes('contact.html')) return 'contact';
+  const path = window.location.pathname || '/';
+  const file = path.split('/').pop();
+  const name = file ? file.split('.')[0].toLowerCase() : '';
+
+  if (name === 'product' || path.endsWith('/product') || path.includes('/product/')) return 'product';
+  if (name === 'shop' || path.endsWith('/shop') || path.includes('/shop')) return 'shop';
+  if (name === 'about' || path.endsWith('/about')) return 'about';
+  if (name === 'contact' || path.endsWith('/contact')) return 'contact';
+
+  // Fallback to home for root or unknown paths
   return 'home';
 }
 
