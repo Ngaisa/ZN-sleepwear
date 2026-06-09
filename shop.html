@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Shop luxury sleepwear and loungewear from ZN Sleepwear - premium pajamas, robes, and more." />
+  <title>Shop | ZN Sleepwear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="announcement-bar">ORDER ON WEBSITE NOT AVAILABLE PLEASE SENT US A SCREENSHOT OF YOUR ORDER</div>
+
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <button class="icon-btn nav-toggle" id="navToggle" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <a class="brand-link" href="index.html">
+        <img class="brand-logo" src="img/our logo.jpg" alt="ZN Sleepwear" />
+      </a>
+
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop All</a></li>
+          <li><a href="shop.html?category=new">New Arrivals</a></li>
+          <li><a href="shop.html?category=best">Best Sellers</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn search-toggle" id="searchToggle" aria-label="Search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 21l-4.35-4.35m1.85-5.45a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <a class="icon-btn account-btn" href="#" aria-label="Account">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <button class="icon-btn cart-btn" id="cartToggle" aria-label="Cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12L4 3H2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="21" r="1"/><circle cx="18" cy="21" r="1"/></svg>
+          <span class="badge cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav hidden" id="mobileNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop All</a></li>
+        <li><a href="shop.html?category=new">New Arrivals</a></li>
+        <li><a href="shop.html?category=best">Best Sellers</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="search-panel hidden" id="searchPanel">
+      <div class="container search-box">
+        <input type="search" id="searchInput" placeholder="Search pajamas, robes, sets..." aria-label="Search" />
+        <div id="searchResults" class="search-results hidden"></div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="shop-header">
+      <div class="container">
+        <h1>Shop Our Collection</h1>
+        <p>Discover all of our soft sleepwear designed for evenings that feel effortlessly beautiful.</p>
+      </div>
+    </section> 
+    
+    <section class="shop-section">
+      <div class="container shop-grid">
+        <div class="shop-content">
+          <div class="shop-toolbar">
+            <p id="productCount"></p>
+          </div>
+          <div class="product-grid" id="shopProducts"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>ZN Sleepwear</h3>
+          <p>Because softness is not weakness — it is a form of luxury.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/znsleepwear.sr?utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.203 0-3.584-.012-4.849-.069-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/><path d="M5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@znsleepwear.sr?_r=1&_t=ZS-9739ihKT8hF" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.1 1.82 2.89 2.89 0 0 1 2.31-4.64 2.88 2.88 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-.97-.09z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/share/1EC7ZTN9ir/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://wa.me/5978715234" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.149-.672.149-.198.297-.767.967-.94 1.166-.173.198-.347.223-.644.075-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.173.198-.297.298-.495.099-.198.05-.372-.025-.52-.075-.149-.672-1.612-.921-2.212-.242-.579-.487-.5-.672-.51l-.573-.01c-.198 0-.52.075-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.693.626.712.227 1.36.195 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="shop.html?category=new">New Arrivals</a></li>
+            <li><a href="shop.html?category=best">Best Sellers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="contact.html">Support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 ZN Sleepwear. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cart-drawer hidden" id="cartDrawer">
+    <div class="drawer-header">
+      <h2>Your Bag</h2>
+      <button class="icon-btn close-cart" id="closeCart" aria-label="Close">
+        <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="drawer-body">
+      <div id="cartItemsList" class="cart-items-list"></div>
+    </div>
+    <div class="drawer-footer">
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <strong id="cartSubtotal">$0.00</strong>
+        </div>
+        <div class="summary-row">
+          <span>Shipping</span>
+          <span>Calculated at checkout</span>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-block" id="checkoutBtn">Proceed to Checkout</button>
+      <a class="btn btn-outline btn-block" href="shop.html">Continue Shopping</a>
+    </div>
+  </div>
+
+  <div class="backdrop hidden" id="backdrop"></div>
+
+  <div class="modal hidden" id="productModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeModal">&times;</button>
+      <div class="product-modal-inner" id="productModalContent"></div>
+    </div>
+  </div>
+
+  <div class="backdrop hidden" id="lightboxBackdrop"></div>
+  <div class="lightbox hidden" id="imageLightbox">
+    <button class="lightbox-close" id="closeLightbox" aria-label="Close">&times;</button>
+    <div class="lightbox-content">
+      <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrev" aria-label="Previous image">‹</button>
+      <img id="lightboxImage" src="" alt="Product image" />
+      <button class="lightbox-nav-btn lightbox-next" id="lightboxNext" aria-label="Next image">›</button>
+    </div>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+  </div>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>

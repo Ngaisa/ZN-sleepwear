@@ -1,0 +1,188 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="ZN Sleepwear - Luxury sleepwear and loungewear designed for women who value comfort, style, and elegance." />
+  <title>ZN Sleepwear.SR| Premium Luxury Sleepwear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="announcement-bar">ORDER ON WEBSITE NOT AVAILABLE PLEASE SENT US A SCREENSHOT OF YOUR ORDER</div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <button class="icon-btn nav-toggle" id="navToggle" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <a class="brand-link" href="index.html">
+        <img class="brand-logo" src="img/our logo.jpg" alt="ZN Sleepwear" />
+      </a>
+
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop All</a></li>
+          <li><a href="shop.html?category=new">New Arrivals</a></li>
+          <li><a href="shop.html?category=best">Best Sellers</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn search-toggle" id="searchToggle" aria-label="Search site">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 21l-4.35-4.35m1.85-5.45a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="icon-btn account-btn" aria-label="Account">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="icon-btn cart-toggle" id="cartToggle" aria-label="Open cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12L4 3H2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="21" r="1"/><circle cx="18" cy="21" r="1"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav hidden" id="mobileNav" aria-label="Primary navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop All</a></li>
+        <li><a href="shop.html?category=new">New Arrivals</a></li>
+        <li><a href="shop.html?category=best">Best Sellers</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="search-panel hidden" id="searchPanel">
+      <div class="container search-box">
+        <input type="search" id="searchInput" placeholder="Search sleepwear, robes, sets..." aria-label="Search site" />
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-overlay"></div>
+      <img class="hero-image" src="img/US.jpeg" alt="Woman relaxing in luxury sleepwear" />
+      <div class="container hero-copy">
+        <span class="eyebrow">OUR FIRST COLLECTION</span>
+        <h1>FOR THE SOFT GIRLS</h1>
+        <p>Discover Soft sleepwear designed for evenings that feel effortlessly beautiful.</p>
+        <a class="btn btn-primary" href="#new-arrivals">SHOP NOW</a>
+      </div>
+    </section>
+
+    <section class="section" id="new-arrivals" data-section="collection">
+      <div class="container section-header">
+        <div>
+          <p class="section-label">Featured Collection</p>
+          <h2>Shop New Arrivals</h2>
+        </div>
+      </div>
+
+      <div class="product-grid" id="newProducts"></div>
+    </section>
+
+    <section class="section section-alt" id="best-sellers" data-section="collection">
+      <div class="container section-header">
+        <div>
+          <p class="section-label">Customer Favorite</p>
+          <h2>Best Sellers</h2>
+        </div>
+      </div>
+
+      <div class="product-grid" id="bestProducts"></div>
+    </section>
+
+    <section class="section about-section" id="about" data-section="about">
+      <div class="container about-grid">
+        <div class="about-media">
+          <img src="img/pj cover.jpeg" alt="Luxury sleepwear details" />
+        </div>
+        <div class="about-copy">
+          <p class="section-label">Our Story</p>
+          <h2>Luxury made soft.</h2>
+          <p>At ZN Sleepwear, we believe comfort and confidence go hand in hand. Our collections are designed for women who love feeling beautiful, relaxed, and stylish.</p>
+          <a class="btn btn-outline" href="about.html">About Us</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section newsletter-section" id="newsletter" data-section="newsletter">
+      <div class="container newsletter-panel">
+        <div>
+          <p class="section-label">Keep in touch</p>
+          <h2>Join Our Community</h2>
+          <p>Be the first to receive new arrivals, styling edits, and exclusive offers.</p>
+        </div>
+        <form class="newsletter-form" id="newsletterForm">
+          <label for="newsletterEmail" class="sr-only">Email address</label>
+          <input id="newsletterEmail" type="email" placeholder="Enter your email" required />
+          <button class="btn btn-primary" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>ZN Sleepwear</h3>
+        <p>Because softness is not weakness — it is a form of luxury.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#new-arrivals">Shop</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#newsletter">Newsletter</a></li>
+        </ul>
+      </div>
+     
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/znsleepwear.sr?utm_source=qr">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@znsleepwear">TikTok</a></li>
+          <li><a href="https://www.facebook.com/znsleepwear">Facebook</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-note">© 2026 ZN Sleepwear</div>
+  </footer>
+
+  <div class="cart-drawer hidden" id="cartDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div>
+        <p class="eyebrow">Your Bag</p>
+        <h3>Cart</h3>
+      </div>
+      <button class="icon-btn" id="closeCart" aria-label="Close cart">✕</button>
+    </div>
+    <div class="drawer-body">
+      <div id="cartItems"></div>
+    </div>
+    <div class="drawer-footer">
+      <div class="drawer-total">
+        <span>Subtotal</span>
+        <strong id="cartTotal">$0.00</strong>
+      </div>
+      <button class="btn btn-primary" id="checkoutButton">Checkout</button>
+    </div>
+  </div>
+  <div class="drawer-backdrop hidden" id="drawerBackdrop"></div>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
