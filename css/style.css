@@ -340,6 +340,8 @@ button {
   box-shadow: var(--shadow);
   position: relative;
   transition: transform 220ms ease, box-shadow 220ms ease;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .product-card:hover {
@@ -349,6 +351,7 @@ button {
 .product-image {
   position: relative;
   overflow: hidden;
+  contain: layout;
 }
 
 .product-image img {
@@ -356,6 +359,10 @@ button {
   height: 70vh;
   object-fit: cover;
   transition: transform 320ms ease;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .product-img-clickable {

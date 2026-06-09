@@ -1,3 +1,12 @@
+// Register Service Worker for caching and offline support
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(err => {
+      console.log('Service Worker registration failed:', err);
+    });
+  });
+}
+
 // Product Data
 const products = [
   {
@@ -426,29 +435,62 @@ function renderProductGrid(elementId, prods) {
 }
 
 function setupProductCardRotations(container) {
+  // Clear previous interval to prevent memory leaks
   if (cardRotationInterval) {
     clearInterval(cardRotationInterval);
+    cardRotationInterval = null;
   }
 
-  const images = Array.from(container.querySelectorAll('.product-img-clickable')).map((img) => {
+  // Get all product images with multiple variations
+  const productCards = Array.from(container.querySelectorAll('.product-card')).map((card) => {
+    const img = card.querySelector('.product-img-clickable');
+    if (!img) return null;
+    
     const imageList = img.dataset.images?.split('|') || [];
     if (imageList.length <= 1) return null;
-    img.dataset.imageIndex = '0';
-    img.src = imageList[0];
-    return { img, imageList };
+    
+    return {
+      card,
+      img,
+      imageList,
+      currentIndex: 0,
+      rotationInterval: null,
+      isHovering: false
+    };
   }).filter(Boolean);
 
-  if (images.length === 0) return;
+  if (productCards.length === 0) return;
 
-  cardRotationInterval = setInterval(() => {
-    images.forEach(({ img, imageList }) => {
-      const currentIndex = Number(img.dataset.imageIndex || 0);
-      const nextIndex = (currentIndex + 1) % imageList.length;
-      img.dataset.imageIndex = String(nextIndex);
-      img.src = imageList[nextIndex];
+  // Add hover listeners for image rotation
+  productCards.forEach(({ card, img, imageList, rotationInterval }) => {
+    const productData = productCards.find(p => p.img === img);
+    
+    // Hover to start rotation
+    card.addEventListener('mouseenter', () => {
+      if (productData.isHovering) return;
+      productData.isHovering = true;
+      
+      // Rotate every 800ms on hover instead of 2800ms globally
+      productData.rotationInterval = setInterval(() => {
+        productData.currentIndex = (productData.currentIndex + 1) % imageList.length;
+        img.src = imageList[productData.currentIndex];
+      }, 800);
     });
-  }, 2800);
+    
+    // Stop rotation on mouse leave
+    card.addEventListener('mouseleave', () => {
+      productData.isHovering = false;
+      if (productData.rotationInterval) {
+        clearInterval(productData.rotationInterval);
+        productData.rotationInterval = null;
+      }
+      // Reset to first image
+      productData.currentIndex = 0;
+      img.src = imageList[0];
+    });
+  });
 }
+
 
 function showProductModal(productId) {
   const product = products.find((p) => p.id === productId);
