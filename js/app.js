@@ -266,6 +266,10 @@ function renderHomePage() {
   renderProductGrid('bestProducts', bestSellers);
 }
 
+function formatPrice(amount) {
+  return `SRD${amount.toFixed(2)}`;
+}
+
 function renderShopProducts() {
   let filtered = products;
   const pageTitle = document.querySelector('.shop-header h1');
@@ -331,7 +335,7 @@ function renderProductPage() {
       <div class="product-detail-copy">
         <p class="section-label">${product.badge || product.label || 'Sleepwear'}</p>
         <h1>${product.name}</h1>
-        <p class="price">$${product.price.toFixed(2)}</p>
+        <p class="price">${formatPrice(product.price)}</p>
         <p>${product.description}</p>
         <div class="size-selector">
           <h3>Select Size *</h3>
@@ -406,7 +410,7 @@ function renderProductGrid(elementId, prods) {
       </div>
       <div class="product-copy">
         <h3>${product.name}</h3>
-        <p class="price">$${product.price.toFixed(2)}</p>
+        <p class="price">${formatPrice(product.price)}</p>
         <div class="product-actions">
           <a class="btn btn-primary" href="product.html?id=${product.id}">View</a>
           <button class="wishlist-btn ${wishlist.includes(product.id) ? 'active' : ''}" data-id="${product.id}" aria-label="Add to wishlist">♡</button>
@@ -508,7 +512,7 @@ function showProductModal(productId) {
       </div>
       <div class="product-modal-details">
         <h2>${product.name}</h2>
-        <div class="product-modal-price">$${product.price.toFixed(2)}</div>
+        <div class="product-modal-price">${formatPrice(product.price)}</div>
         <p class="product-modal-description">${product.description}</p>
 
         <div class="size-selector">
@@ -673,7 +677,7 @@ function performSearch() {
     resultsDiv.innerHTML = results.map((p) => `
       <div class="search-result-item" data-id="${p.id}">
         <strong>${p.name}</strong>
-        <span>$${p.price.toFixed(2)}</span>
+        <span>${formatPrice(p.price)}</span>
       </div>
     `).join('');
 
@@ -760,7 +764,7 @@ function renderCart() {
 
   if (cart.length === 0) {
     cartList.innerHTML = '<p class="cart-empty">Your bag is empty. Start shopping!</p>';
-    if (totalEl) totalEl.textContent = '$0.00';
+    if (totalEl) totalEl.textContent = 'SRD0.00';
     if (checkoutButtonEl) checkoutButtonEl.disabled = true;
     return;
   }
@@ -773,7 +777,7 @@ function renderCart() {
       <div class="cart-item-details">
         <div>
           <strong>${item.name}</strong>
-          <div class="item-meta">Size: ${item.size} | $${item.price.toFixed(2)}</div>
+          <div class="item-meta">Size: ${item.size} | ${formatPrice(item.price)}</div>
         </div>
         <div class="cart-controls">
           <button class="qty-btn qty-decrease" data-id="${item.id}" data-size="${item.size}">−</button>
@@ -804,7 +808,7 @@ function renderCart() {
     });
   });
 
-  if (totalEl) totalEl.textContent = `$${total.toFixed(2)}`;
+  if (totalEl) totalEl.textContent = formatPrice(total);
 }
 
 function openCart() {
@@ -829,7 +833,7 @@ function handleCheckout() {
   }
   const cartSummary = cart.map((item) => `${item.name} (${item.size}) x${item.quantity}`).join('\n');
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  alert(`Order Summary:\n${cartSummary}\n\nTotal: $${total.toFixed(2)}\n\nProceeding to checkout...`);
+  alert(`Order Summary:\n${cartSummary}\n\nTotal: ${formatPrice(total)}\n\nProceeding to checkout...`);
 }
 
 function handleNewsletter(e) {
